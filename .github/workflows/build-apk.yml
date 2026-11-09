@@ -21,7 +21,7 @@ jobs:
           fi
           mkdir extracted
           unzip -q "$ZIP_FILE" -d extracted
-          test -d extracted/Mark_Neil_Balag_Calc/android
+          test -d extracted/Mark_Neil_Calc/android
 
       - name: Set up Java
         uses: actions/setup-java@v4
@@ -41,11 +41,11 @@ jobs:
           gradle-version: '8.9'
 
       - name: Build APK
-        run: gradle --no-daemon -p extracted/Mark_Neil_Balag_Calc/android assembleDebug
+        run: gradle --no-daemon -p extracted/Mark_Neil_Calc/android assembleDebug
 
       - name: Upload installable APK
         uses: actions/upload-artifact@v4
         with:
           name: Mark-Neil-Balag-Calc-APK
-          path: extracted/Mark_Neil_Balag_Calc/android/app/build/outputs/apk/debug/app-debug.apk
+          path: extracted/Mark_Neil_Calc/android/app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error
